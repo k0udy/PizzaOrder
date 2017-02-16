@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="DataAccess" namespace="DataAccess.Model">
+
+  <class name="Pizza" table="pizza">
+    <id name="Id" column="id">
+      <generator class="native" />
+    </id>
+    <property name="Name" column="name" />
+    <property name="Price" column="price" />
+    <many-to-one name="Ingredience" column="ingredience_id" foreign-key="ingredience_id" />
+
+  </class>
+
+</hibernate-mapping>

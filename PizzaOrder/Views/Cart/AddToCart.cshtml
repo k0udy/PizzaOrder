@@ -1,0 +1,39 @@
+﻿@using DataAccess.Model
+@model Order
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+    $("#kosik").addClass("active");
+</script>
+
+<h2>Obsah kosiku</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Pizza</th>
+            <th>Mnozstvi</th>
+            <th>Celkem</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row"></th>
+        <td>@Model.OrderedPizza</td>
+        <td>@Model.PizzaCount</td>
+        <td>@Model.Price.ToString("#.##")</td>
+        <td></td>
+        <td>@Html.ActionLink("Odebrat z kosiku", "RemoveFromCart", "Cart", null, new {@class="btn btn-danger"})</td>
+    </tr>
+    </tbody>
+</table>
+
+@Html.ActionLink("Dokoncit objednavku", "FinishingOrder", "Cart", new {order = Model}, new { @class = "btn btn-success" })
+
+<h3>Celkem: @Model.Price.ToString("#.##") Kc</h3>
+

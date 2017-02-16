@@ -1,0 +1,53 @@
+﻿@using DataAccess.Model
+@model IList<Pizza>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<script>
+    $("#administrace").addClass("active");
+</script>
+<style>
+    td {
+        vertical-align: central;
+    }
+</style>
+
+
+
+<h2>Nabidka</h2>
+
+<a href="@Url.Action("Create", "Admin")" class="btn btn-default pull-right">Vytvoreni nove pizzy</a>
+<div class="clearfix"></div>
+
+<table class="table table-bordered table-hover table-condensed">
+    <tbody>
+    @foreach (Pizza p in Model)
+    {
+        <tr class="row">
+            <td class="col-xs-2 text-center"><img src="~/Content/D3soft.png" alt="D3soft logo" /></td>
+            <td class="col-xs-4">
+                @p.Name
+                <br />
+                @p.Ingredience.Name
+            </td>
+        <td class="col-xs-3">
+            @p.Price.ToString("##.###") Kc
+            <br />
+        </td>
+            <td class="col-xs-3">
+                @Html.ActionLink("Edit", "Edit", "Admin", new { id = p.Id }
+                    , new {@class= "btn btn-warning glyphicon glyphicon-pencil" })
+                <br/>
+                @Html.ActionLink("Delete", "Delete", "Admin", new { id = p.Id }
+                    , new { onclick = "return confirm('Prejete si opravdu smazat pizzu " + p.Name + "');"
+                    , @class = "btn btn-danger glyphicon glyphicon-remove"
+                    }) 
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+

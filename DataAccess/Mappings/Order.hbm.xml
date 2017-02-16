@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="DataAccess" namespace="DataAccess.Model">
+
+  <class name="Order" table="order">
+    <id name="Id" column="id">
+      <generator class="native" />
+    </id>
+    <property name="OrderedPizza" column="pizzaName" />
+    <property name="PizzaCount" column="pizzaCount" />
+    <property name="Price" column="pizzaPrice" />
+
+  </class>
+
+</hibernate-mapping>

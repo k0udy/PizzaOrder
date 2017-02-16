@@ -1,0 +1,35 @@
+﻿@using DataAccess.Model
+@model IList<Pizza>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+    $("#nabidka").addClass("active");
+</script>
+
+<h2>Nabidka</h2>
+
+<table class="table table-bordered table-hover table-condensed">
+    <tbody>
+        @foreach (Pizza p in Model)
+        {
+            <tr class ="row">
+                <td class="col-xs-3"><img src="~/Content/D3soft.png" alt="D3soft logo"/></td>
+                <td class="col-xs-5">@p.Name
+                    <br/>
+                    @p.Ingredience.Name
+                </td>
+                <td class="col-xs-4">@p.Price.ToString("##.###") Kc
+                    <br/>
+                    @Html.ActionLink("Do kosiku", "AddToCart", "Cart", new {id = p.Id}, new {@class="btn btn-danger"})
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+

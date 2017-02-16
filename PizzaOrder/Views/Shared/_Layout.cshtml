@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>D3 Pizza Delivery</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")"></script>
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="~/Content/bootstrap-lumen.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/navbar.css">
+    <style>
+        body {
+            margin: 20px;
+        }
+        img {
+            width: 50%;
+            height: auto;
+        }
+        
+        input.input-validation-error {
+            background-color: bisque;
+        }
+
+        input.valid {
+            background-color: #ccffcc
+        }
+    </style>
+</head>
+<body>
+
+    <h1>D3 Pizza Delivery</h1>
+    <h3>Solution to your hunger</h3>
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li id="nabidka"><a href="@Url.Action("Index", "Home")">Nabídka</a></li>
+                    <li id="kosik"><a href="@Url.Action("Index", "Cart")">Košík</a></li>
+                    <li id="administrace"><a href="@Url.Action("Index", "Admin")">Administrace</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    
+</body>
+</html>
